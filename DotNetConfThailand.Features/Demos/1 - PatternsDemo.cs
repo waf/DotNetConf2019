@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DotNetConf2019.Features.Demos
+namespace DotNetConfThailand.Features.Demos
 {
-    class PatternsFeature
+    class PatternsDemo
     {
         public static void Demo()
         {

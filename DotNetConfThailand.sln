@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29319.158
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetConf2019.NullableReferences", "DotNetConf2019\DotNetConf2019.NullableReferences.csproj", "{9A75831C-38B2-4377-BBE0-5577DB9DB343}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetConfThailand.NullableReferences", "DotNetConfThailand.NullableReferences\DotNetConfThailand.NullableReferences.csproj", "{9A75831C-38B2-4377-BBE0-5577DB9DB343}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetConf2019.Features", "DotNetConf2019.Features\DotNetConf2019.Features.csproj", "{F51DA23E-A61A-459F-93BC-EDB5896F959C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetConfThailand.Features", "DotNetConfThailand.Features\DotNetConfThailand.Features.csproj", "{F51DA23E-A61A-459F-93BC-EDB5896F959C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

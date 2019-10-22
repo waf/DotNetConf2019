@@ -2,10 +2,20 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DotNetConf2019.Features.Demos
+namespace DotNetConfThailand.Features.Demos
 {
+    public class DefaultInterfaceMemberDemo
+    {
+        public static void Demo()
+        {
+            IShell cmd = new CommandShell();
+            IShell powershell = new PowerShell();
+            IShell bash = new BashShell();
+        }
+    }
+
     // our interface. part of our library we publish on Nuget
-    public interface ITerminal
+    public interface IShell
     {
         public void Write(string output);
         public void WriteLine(string output) => Write(output);
@@ -13,7 +23,7 @@ namespace DotNetConf2019.Features.Demos
     }
 
     // in some other project
-    public class WindowsTerminal : ITerminal
+    public class CommandShell : IShell
     {
         public void Write(string output)
         {
@@ -22,7 +32,16 @@ namespace DotNetConf2019.Features.Demos
     }
 
     // in some other project
-    public class CommandPromptConsole : ITerminal
+    public class PowerShell : IShell
+    {
+        public void Write(string output)
+        {
+            /* ConEmu implementation not shown */
+        }
+    }
+
+    // in some other project
+    public class BashShell : IShell
     {
         public void Write(string output)
         {
@@ -30,21 +49,4 @@ namespace DotNetConf2019.Features.Demos
         }
     }
 
-    // in some other project
-    public class PowerShellConsole : ITerminal
-    {
-        public void Write(string output)
-        {
-            /* PowerShell implementation not shown */
-        }
-    }
-
-    // in some other project
-    public class ConEmuConsole : ITerminal
-    {
-        public void Write(string output)
-        {
-            /* ConEmu implementation not shown */
-        }
-    }
 }

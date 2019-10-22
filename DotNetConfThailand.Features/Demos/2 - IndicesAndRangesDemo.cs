@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DotNetConf2019.Features.Demos
+namespace DotNetConfThailand.Features.Demos
 {
-    class IndicesAndRanges
+    class IndicesAndRangesDemo
     {
         public static void Demo()
         {
@@ -25,7 +25,7 @@ namespace DotNetConf2019.Features.Demos
             Print(editors[0..2]);
 
             // last two
-            Print(editors[2..^0]);
+            Print(editors[^2..^0]);
 
             // all but first
             Print(editors[1..]);
@@ -36,8 +36,9 @@ namespace DotNetConf2019.Features.Demos
             // all 
             Print(editors[..]);
 
-           
             // ranges are just data
+            Range all = ..^1;
+            Print(editors[all]);
         }
 
         private static void Print(params string[] args) =>
