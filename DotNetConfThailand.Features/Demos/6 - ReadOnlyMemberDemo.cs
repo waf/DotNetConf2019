@@ -23,9 +23,9 @@
         }
 
         public int X { get; set; }
-        public int Y { get; set;  }
+        public int Y { get; set; }
 
-        public override readonly string ToString() =>
+        public override string ToString() =>
             $"Point({X},{Y})";
 
         public void Negate()

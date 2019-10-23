@@ -7,7 +7,13 @@ namespace DotNetConfThailand.Features.Demos
         public static void Demo()
         {
             Console.WriteLine(
-                Format(new DateTime(2018, 8, 29))
+                Format(5m)
+            );
+            Console.WriteLine(
+                Format(new[] { "a", "b", "c" })
+            );
+            Console.WriteLine(
+                Format((5m, 6m))
             );
         }
 

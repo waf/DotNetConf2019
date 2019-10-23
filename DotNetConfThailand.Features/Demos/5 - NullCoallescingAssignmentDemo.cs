@@ -8,6 +8,7 @@
             AddUser("John");
             AddUser("Bob");
         }
+
         public static void AddUser(string username, string role = null)
         {
             role ??= "Guest";

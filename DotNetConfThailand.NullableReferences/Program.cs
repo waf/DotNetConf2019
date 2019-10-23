@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace DotNetConfThailand.NullableReferences
 {
     public static class Program

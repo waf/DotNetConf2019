@@ -35,8 +35,8 @@ namespace DotNetConfThailand.Features.Demos
             Print(editors[..]);
 
             // ranges are just data
-            Range all = ..^1;
-            Print(editors[all]);
+            Range range = 0..2;
+            Print(editors[range]);
         }
 
         private static void Print(params string[] args) =>

@@ -1,4 +1,6 @@
-﻿namespace DotNetConfThailand.Features.Demos
+﻿using System;
+
+namespace DotNetConfThailand.Features.Demos
 {
     public class DefaultInterfaceMemberDemo
     {
@@ -14,8 +16,6 @@
     public interface IShell
     {
         public void Write(string output);
-        public void WriteLine(string output) => Write(output);
-        public void Scream(string output) => Write(output.ToUpper());
     }
 
     // in some other project

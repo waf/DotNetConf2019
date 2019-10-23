@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace DotNetConfThailand.Features.Demos
@@ -34,6 +35,32 @@ namespace DotNetConfThailand.Features.Demos
             await foreach(var session in GetConferenceSessionsAsync())
             {
                 Console.WriteLine($"I <3 {session}");
+            }
+        }
+
+
+
+
+        // before C# 8...
+        private static IEnumerable<Task<IEnumerable<string>>> GetConferenceSessions()
+        {
+            return ConferenceSessions
+                .Select(async kvp =>
+                {
+                    await Task.Delay(2000); // simulate asynchronous network call
+                    return kvp.Value.AsEnumerable();
+                });
+        }
+
+        public static async Task Demo2()
+        {
+            foreach (var pageTask in GetConferenceSessions())
+            {
+                var page = await pageTask;
+                foreach (var session in page)
+                {
+                    Console.WriteLine($"I <3 {session}");
+                }
             }
         }
     }
