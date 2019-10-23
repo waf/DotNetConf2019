@@ -6,14 +6,15 @@ namespace DotNetConfThailand.NullableReferences
     {
         public static void Main(string[] args)
         {
-            Person miguel = new Person("Theeranit", "Pongtongmuan");
-            int length = GetLengthOfMiddleName(miguel);
+            Person aaron = new Person("Theeranit", "Pongtongmuan");
+            int length = GetLengthOfMiddleName(aaron);
             Console.WriteLine(length);
         }
 
         public static int GetLengthOfMiddleName(Person p)
         {
-            return p.MiddleName.Length;
+            var middle = p.MiddleName;
+            return middle.Length;
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DotNetConfThailand.Features.Demos
+﻿namespace DotNetConfThailand.Features.Demos
 {
     public class DefaultInterfaceMemberDemo
     {

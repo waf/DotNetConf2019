@@ -1,35 +1,55 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DotNetConfThailand.Features.Demos
 {
-    class PatternsDemo
+    static class PatternsDemo
     {
         public static void Demo()
         {
-            Console.WriteLine(Format("Hello World!"));
+            Console.WriteLine(
+                Format(new DateTime(2018, 8, 29))
+            );
         }
 
         public static string Format(object toFormat)
         {
             switch (toFormat)
             {
+                case decimal d:
+                    return $"decimal {d}";
+
+
+                case string[] array:
+                    return $"string array [{string.Join(", ", array)}]";
+
+
+                case (var a, var b):
+                    return "A tuple with " + Format(a) + " and " + Format(b);
+
+
                 case string { Length: var length } str when length > 10 :
                     return @$"The long string ""{str}"" with length {length}";
-                case string s:
-                    return $"A string {s}";
-                case decimal d:
-                    return $"A decimal {d}";
-                case (var a, var b):
-                    return "A tuple with " + Format(a) + " " + Format(b);
+
+
+                case DateTime(2018, int month, int day):
+                    return $"Last year! and the current month is {month} and the day is {day}";
+
+
                 case { }:
                     return "Some object that isn't null" + toFormat.ToString();
+
+
                 default:
                     return "You gave me nothing";
             }
         }
 
+        public static void Deconstruct(this DateTime date, out int year, out int month, out int day)
+        {
+            year = date.Year;
+            month = date.Month;
+            day = date.Day;
+        }
 
         public enum CarState
         {
@@ -38,7 +58,7 @@ namespace DotNetConfThailand.Features.Demos
             Decelerating,
         }
 
-        public string DescribeChange(CarState oldState, CarState newState) =>
+        public static string DescribeChange(CarState oldState, CarState newState) =>
             (oldState, newState) switch
             {
                 (CarState.Cruising, CarState.Accelerating) => "The driver pressed the gas pedal",

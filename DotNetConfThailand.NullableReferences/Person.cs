@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace DotNetConfThailand.NullableReferences
+﻿namespace DotNetConfThailand.NullableReferences
 {
     public class Person
     {
@@ -11,7 +9,6 @@ namespace DotNetConfThailand.NullableReferences
         public Person(string firstName, string lastName)
         {
             this.FirstName = firstName;
-            this.MiddleName = null;
             this.LastName = lastName;
         }
 
