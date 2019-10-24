@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Immutable;
 
 namespace DotNetConfThailand.Features.Demos
 {
@@ -33,7 +34,7 @@ namespace DotNetConfThailand.Features.Demos
                     return "A tuple with " + Format(a) + " and " + Format(b);
 
 
-                case string { Length: var length } str when length > 10 :
+                case string { Length: var length } str when length > 10:
                     return @$"The long string ""{str}"" with length {length}";
 
 
@@ -57,26 +58,34 @@ namespace DotNetConfThailand.Features.Demos
             day = date.Day;
         }
 
-        public enum CarState
+        /*
+         State Management example
+         We have a list UI that can add or remove input fields.
+         We support a maximum of 10 input fields.
+         We use an ImmutableList<Input> as our viewmodel.
+         */
+
+        public enum Button
         {
-            Cruising,
-            Accelerating,
-            Decelerating,
+            AddInput,
+            RemoveInput,
         }
 
-        public static string DescribeChange(CarState oldState, CarState newState) =>
-            (oldState, newState) switch
+        public static ImmutableList<Input> GetNextState(ImmutableList<Input> list, Button button) =>
+            (list, button) switch
             {
-                (CarState.Cruising, CarState.Accelerating) => "The driver pressed the gas pedal",
-                (CarState.Cruising, CarState.Decelerating) => "The driver hit the brake",
-                (CarState.Accelerating, CarState.Cruising) => "The driver stopped pressing the gas pedal",
-                (CarState.Accelerating, CarState.Decelerating) => "The driver moved their foot from the gas to the brake pedal",
-                (CarState.Decelerating, CarState.Cruising) => "The driver turned on cruise control",
-                (CarState.Decelerating, CarState.Accelerating) => "The driver moved their foot from the break to the gas pedal",
+                ({ Count: 10 }, Button.AddInput) => list,
+                ({ Count: 0 }, Button.RemoveInput) => list,
+                (_, Button.AddInput) => list.Add(new Input()),
+                ({ Count: var count }, Button.RemoveInput) => list.RemoveAt(count - 1),
 
-                (var a, var b) when a == b => "The driver is chilling",
-                _ => "Unknown state!"
+                _ => throw new ArgumentOutOfRangeException(nameof(button), button, "Unknown enum value")
             };
 
+
+
+
+
+        public class Input { }
     }
 }
