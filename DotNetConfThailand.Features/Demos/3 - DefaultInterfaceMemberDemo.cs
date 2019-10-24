@@ -6,43 +6,37 @@ namespace DotNetConfThailand.Features.Demos
     {
         public static void Demo()
         {
-            IShell cmd = new CommandShell();
-            IShell powershell = new PowerShell();
-            IShell bash = new BashShell();
+            IConferenceSession dotnetSession = new DotNetConfSession();
+            IConferenceSession rubySession = new RubyConfSession();
+            IConferenceSession pythonSession = new PyConSession();
         }
     }
 
     // our interface. part of our library we publish on Nuget
-    public interface IShell
+    public interface IConferenceSession
     {
-        public void Write(string output);
+        public void GiveTalk(string words);
+        public void DemoCode(string code);
     }
 
     // in some other project
-    public class CommandShell : IShell
+    public class DotNetConfSession : IConferenceSession
     {
-        public void Write(string output)
-        {
-            /* Windows Terminal implementation not shown */
-        }
+        public void DemoCode(string code) { /* skipped */ }
+        public void GiveTalk(string words) { /* skipped */ }
     }
 
     // in some other project
-    public class PowerShell : IShell
+    public class RubyConfSession : IConferenceSession
     {
-        public void Write(string output)
-        {
-            /* ConEmu implementation not shown */
-        }
+        public void DemoCode(string code) { /* skipped */ }
+        public void GiveTalk(string words) { /* skipped */ }
     }
 
     // in some other project
-    public class BashShell : IShell
+    public class PyConSession : IConferenceSession
     {
-        public void Write(string output)
-        {
-            /* Command Prompt implementation not shown */
-        }
+        public void DemoCode(string code) { /* skipped */ }
+        public void GiveTalk(string words) { /* skipped */ }
     }
-
 }

@@ -7,20 +7,20 @@ namespace DotNetConfThailand.Features.Demos
     {
         public static void Demo()
         {
-            ValidateUsername("Mark");
-            ValidateUsername("Bob");
+            ValidateConferenceTalk("What's new in C# 8");
+            ValidateConferenceTalk("Azure Services Every .NET Developer Needs to Know");
         }
 
-        private static bool ValidateUsername(string name)
+        private static bool ValidateConferenceTalk(string name)
         {
-            var bannedUsers = new[] { "JOE", "BOB", "JANE" };
+            var bannedTalk = new[] { "Don't write tests", "Let's all use the dynamic keyword"};
 
             return name != null
                 && IsNameLongEnough(name)
-                && !IsBannedUser(name);
+                && !IsBannedTalk(name);
 
-            bool IsNameLongEnough(string name) => name.Length > 1;
-            bool IsBannedUser(string name) => bannedUsers.Contains(name.ToUpper());
+            bool IsNameLongEnough(string name) => name.Length > 3;
+            bool IsBannedTalk(string name) => bannedTalk.Contains(name.ToUpper());
         }
     }
 }

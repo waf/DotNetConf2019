@@ -1,25 +1,33 @@
-﻿namespace DotNetConfThailand.Features.Demos
+﻿using System.Collections.Generic;
+
+namespace DotNetConfThailand.Features.Demos
 {
     class NullCoallescingAssignmentDemo
     {
         public static void Demo()
         {
-            AddUser("Sally", "Admin");
-            AddUser("John");
-            AddUser("Bob");
+            AddTalk("Blazor and Azure Functions for Serverless Websites");
+            AddTalk("Creating Libra Cryptocurrency Wallet using .NET SDK");
+            AddTalk("Xamarin.Forms: More Productive and Beautiful Than Ever");
+
+            AddTalk("Scott Hanselman Greeting", "Video");
         }
 
-        public static void AddUser(string username, string role = null)
+        public static void AddTalk(string name, string location = null)
         {
-            role ??= "Guest";
+            location ??= "Microsoft (Thailand)";
 
-            var user = new User(username, role);
-            // insert user record to database
+            var session = new ConferenceSession(name, location);
+            sessions.Add(session);
         }
 
-        class User
+
+
+
+        private static List<ConferenceSession> sessions = new List<ConferenceSession>();
+        class ConferenceSession
         {
-            public User(string username, string role)
+            public ConferenceSession(string username, string role)
             {
                 Username = username;
                 Role = role;

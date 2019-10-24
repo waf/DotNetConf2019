@@ -6,37 +6,37 @@ namespace DotNetConfThailand.Features.Demos
     {
         public static void Demo()
         {
-            string[] editors = {
-                "Visual Studio",
-                "VS Code",
-                "Vim",
-                "JetBrains Rider"
+            string[] talks = {
+                "What's new in C# 8",
+                "Functional Programming with F#",
+                "The Long Hard Road from .NET Framework to .NET Core",
+                "DevOps for the .NET Developer"
             };
 
             // first
-            Print(editors[0]);
+            Print(talks[0]);
 
             // last
-            Print(editors[^1]);
+            Print(talks[^1]);
 
             // first two
-            Print(editors[0..2]);
+            Print(talks[0..2]);
 
             // last two
-            Print(editors[^2..^0]);
+            Print(talks[^2..^0]);
 
             // all but first
-            Print(editors[1..]);
+            Print(talks[1..]);
 
             // all but last
-            Print(editors[..^1]);
+            Print(talks[..^1]);
 
             // all 
-            Print(editors[..]);
+            Print(talks[..]);
 
             // ranges are just data
             Range range = 0..2;
-            Print(editors[range]);
+            Print(talks[range]);
         }
 
         private static void Print(params string[] args) =>

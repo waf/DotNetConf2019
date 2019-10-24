@@ -59,11 +59,11 @@ namespace DotNetConfThailand.Features.Demos
         }
 
         /*
-         State Management example
-         We have a list UI that can add or remove input fields.
-         We support a maximum of 10 input fields.
-         We use an ImmutableList<Input> as our viewmodel.
-         */
+          State Management example
+          We have a list UI that can add or remove input fields.
+          We support a maximum of 10 input fields.
+          We use an ImmutableList<Input> as our viewmodel.
+        */
 
         public enum Button
         {
