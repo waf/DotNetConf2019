@@ -35,7 +35,7 @@ namespace DotNetConfThailand.Features.Demos
 
 
                 case string { Length: var length } str when length > 10:
-                    return @$"The long string ""{str}"" with length {length}";
+                    return $@"The long string ""{str}"" with length {length}";
 
 
                 case DateTime(2018, int month, int day):
@@ -57,6 +57,10 @@ namespace DotNetConfThailand.Features.Demos
             month = date.Month;
             day = date.Day;
         }
+
+
+
+
 
         /*
           State Management example
