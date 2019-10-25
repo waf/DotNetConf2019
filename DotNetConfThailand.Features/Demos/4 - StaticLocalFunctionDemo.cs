@@ -8,7 +8,7 @@ namespace DotNetConfThailand.Features.Demos
         public static void Demo()
         {
             ValidateConferenceTalk("What's new in C# 8");
-            ValidateConferenceTalk("Azure Services Every .NET Developer Needs to Know");
+            ValidateConferenceTalk("ASP.NET Core & Entity Framework Core 3.0 and beyond");
         }
 
         private static bool ValidateConferenceTalk(string name)
