@@ -17,6 +17,8 @@ namespace DotNetConfThailand.Features
             }
 
             Demos[demoNumber]();
+
+            Console.WriteLine();
         }
 
         private static Action[] Demos =
